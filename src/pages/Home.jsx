@@ -197,6 +197,8 @@ const Home = () => {
       <section style={sectionStyle}>
         <h2 style={subHeadingStyle}>Featured Properties</h2>
         <div style={cardContainer}>
+
+          
           {[
             {
               icon: "🏢",
@@ -346,7 +348,8 @@ const Home = () => {
           Contact us today to learn more about our available properties and layouts.
         </p>
         <button
-          style={button}
+     
+     style={button}
           onClick={() => (window.location.href = "/contact")}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = buttonHover.backgroundColor;
