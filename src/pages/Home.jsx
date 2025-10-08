@@ -1,177 +1,363 @@
 import React from "react";
+import SimpleSkylineAnimation from "./SimpleSkylineAnimation"; // Adjust path
 
 const Home = () => {
+  const primaryGreen = "#80b918";  // Softer, luxury olive green
+  const darkBackground = "#0B2B24"; // Deep dark green-blue for luxe feel
+  const cardBg = "rgba(255, 255, 255, 0.1)"; // translucent white cards for content
+  const textLight = "#E6E6E6";  // Soft off-white text
+  const accentGray = "#A3B18A"; // Soft muted green for secondary text
+  const goldAccent = "#FFD700"; // Gold for highlights/buttons
+  const fontFamily = "'Montserrat', sans-serif";
+
   const sectionStyle = {
     width: "100%",
-    padding: "60px 20px",
+    padding: "80px 20px",
     textAlign: "center",
-    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-    backgroundColor: "#f9f9f9",
-    color: "#333",
+    fontFamily,
+    backgroundColor: darkBackground,
+    color: textLight,
   };
 
   const headingStyle = {
-    fontSize: "2.5rem",
-    marginBottom: "20px",
+    fontSize: "3.5rem",
     fontWeight: "700",
-    color: "#222",
+    marginBottom: "25px",
+    color: goldAccent,
+    letterSpacing: "1.2px",
+    textShadow: "0 0 8px rgba(255, 215, 0, 0.7)",
+  };
+
+  const subHeadingStyle = {
+    fontSize: "2.2rem",
+    fontWeight: "700",
+    marginBottom: "30px",
+    color: primaryGreen,
+    textShadow: "0 0 6px rgba(128, 185, 24, 0.7)",
   };
 
   const paragraphStyle = {
-    fontSize: "1.1rem",
-    maxWidth: "800px",
-    margin: "0 auto",
-    lineHeight: "1.6",
-    color: "#444",
+    maxWidth: "720px",
+    margin: "0 auto 40px auto",
+    fontSize: "1.15rem",
+    lineHeight: "1.7",
+    color: accentGray,
   };
 
   const cardContainer = {
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
-    gap: "20px",
-    marginTop: "30px",
+    gap: "30px",
+    marginTop: "40px",
   };
 
+  // Updated card styles:
   const card = {
-    backgroundColor: "#fff",
-    padding: "20px",
-    borderRadius: "10px",
-    width: "250px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-    color: "#333",
-    transition: "transform 0.3s ease",
+    backgroundColor: cardBg,
+    borderRadius: "16px",
+    padding: "35px 30px",
+    width: "320px",
+    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.25)",
+    color: textLight,
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
     cursor: "default",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backdropFilter: "blur(12px)",
+    border: "1px solid rgba(255, 255, 255, 0.12)",
+    gap: "18px",
+  };
+
+  const cardHover = {
+    transform: "translateY(-10px)",
+    boxShadow: `0 22px 44px ${primaryGreen}bb`,
+  };
+
+  const iconWrapper = {
+    width: "72px",
+    height: "72px",
+    borderRadius: "50%",
+    backgroundColor: primaryGreen,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "2.8rem",
+    color: darkBackground,
+    boxShadow: `0 0 14px ${primaryGreen}cc`,
+    marginBottom: "12px",
+  };
+
+  const cardTitle = {
+    fontSize: "1.6rem",
+    fontWeight: "700",
+    color: primaryGreen,
+    marginBottom: "8px",
+    textAlign: "center",
+  };
+
+  const cardDesc = {
+    fontSize: "1.1rem",
+    color: accentGray,
+    textAlign: "center",
+    lineHeight: "1.5",
   };
 
   const button = {
-    marginTop: "20px",
-    padding: "12px 24px",
-    backgroundColor: "#0077b6", // calm blue
-    color: "#fff",
+    marginTop: "30px",
+    padding: "14px 42px",
+    backgroundColor: primaryGreen,
+    color: darkBackground,
+    fontWeight: "700",
     border: "none",
-    borderRadius: "6px",
-    fontWeight: "600",
+    borderRadius: "12px",
     cursor: "pointer",
-    transition: "background-color 0.3s ease",
+    fontSize: "1.2rem",
+    boxShadow: `0 6px 18px ${primaryGreen}cc`,
+    transition: "background-color 0.3s ease, box-shadow 0.3s ease",
   };
 
+  const buttonHover = {
+    backgroundColor: goldAccent,
+    color: darkBackground,
+    boxShadow: `0 8px 25px ${goldAccent}dd`,
+  };
+
+  const IconPlaceholder = ({ children }) => (
+    <div style={iconWrapper}>
+      {children}
+    </div>
+  );
+
   return (
-    <div style={{ backgroundColor: "#f1f3f5" }}>
+    <div style={{ backgroundColor: darkBackground, minHeight: "100vh" }}>
       {/* Hero Section */}
-      <section style={{ ...sectionStyle, paddingTop: "100px" }}>
-        <h1 style={{ ...headingStyle, fontSize: "3rem" }}>Welcome to RealtyCorp</h1>
-        <p style={paragraphStyle}>
-          Experts in <strong>building construction</strong>, <strong>layout development</strong>, and{" "}
-          <strong>farmland apartments</strong>. Bringing your dream property to life with trust and quality.
+      <section style={{ ...sectionStyle, paddingTop: "140px", paddingBottom: "120px" }}>
+        <h1 style={headingStyle}>Welcome to GREENTECH</h1>
+         {/* <SimpleSkylineAnimation /> */}
+        <p style={{ ...paragraphStyle, maxWidth: "600px", marginBottom: "40px" }}>
+          We develop and sell <strong>high-quality residential layouts</strong>, <strong>apartments</strong>, and <strong>buildings</strong>. 
+          Your trusted partner for premium properties designed with excellence and care.
         </p>
         <button
           style={button}
           onClick={() => (window.location.href = "/projects")}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#005f86")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0077b6")}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = buttonHover.backgroundColor;
+            e.currentTarget.style.color = buttonHover.color;
+            e.currentTarget.style.boxShadow = buttonHover.boxShadow;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = button.backgroundColor;
+            e.currentTarget.style.color = button.color;
+            e.currentTarget.style.boxShadow = button.boxShadow;
+          }}
         >
-          Explore Projects
+          Explore Our Properties
         </button>
       </section>
 
-      {/* Services */}
+      {/* What We Offer */}
       <section style={sectionStyle}>
-        <h2 style={headingStyle}>Our Services</h2>
+        <h2 style={subHeadingStyle}>What We Offer</h2>
         <div style={cardContainer}>
-          <div style={card}>
-            <h3>Building Construction</h3>
-            <p>We construct modern, durable residential and commercial buildings.</p>
-          </div>
-          <div style={card}>
-            <h3>Layout Development</h3>
-            <p>We plan and develop well-designed residential layouts for sale.</p>
-          </div>
-          <div style={card}>
-            <h3>Farmland Apartments</h3>
-            <p>Unique living spaces surrounded by nature in curated farmland locations.</p>
-          </div>
+          {[
+            {
+              icon: "🏘️",
+              title: "Residential Layouts",
+              desc: "Strategically planned and approved layouts ready for sale.",
+            },
+            {
+              icon: "🏢",
+              title: "Apartments for Sale",
+              desc: "Modern, eco-friendly apartments designed for comfortable living.",
+            },
+            {
+              icon: "🏗️",
+              title: "Completed Buildings",
+              desc: "Premium buildings developed with quality materials and expert care.",
+            },
+          ].map(({ icon, title, desc }, i) => (
+            <div
+              key={i}
+              style={card}
+              onMouseEnter={(e) => Object.assign(e.currentTarget.style, cardHover)}
+              onMouseLeave={(e) => Object.assign(e.currentTarget.style, card)}
+            >
+              <IconPlaceholder>{icon}</IconPlaceholder>
+              <h3 style={cardTitle}>{title}</h3>
+              <p style={cardDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Featured Properties */}
       <section style={sectionStyle}>
-        <h2 style={headingStyle}>Featured Projects</h2>
+        <h2 style={subHeadingStyle}>Featured Properties</h2>
         <div style={cardContainer}>
-          <div style={card}>
-            <h3>Sky Residency</h3>
-            <p>Modern apartments in the heart of the city.</p>
-          </div>
-          <div style={card}>
-            <h3>Green Valley</h3>
-            <p>Eco-living layout development near hills and farms.</p>
-          </div>
-          <div style={card}>
-            <h3>Lakeview Farms</h3>
-            <p>Farmland apartments with serene lakeside views.</p>
-          </div>
+          {[
+            {
+              icon: "🏢",
+              title: "Sky Residency",
+              desc: "Modern apartments located in the heart of the city, ready to move in.",
+            },
+            {
+              icon: "🌄",
+              title: "Green Valley Layout",
+              desc: "Spacious residential layouts surrounded by nature and greenery.",
+            },
+            {
+              icon: "🏞️",
+              title: "Lakeview Apartments",
+              desc: "Serene apartments with beautiful lakeside views for peaceful living.",
+            },
+          ].map(({ icon, title, desc }, i) => (
+            <div
+              key={i}
+              style={card}
+              onMouseEnter={(e) => Object.assign(e.currentTarget.style, cardHover)}
+              onMouseLeave={(e) => Object.assign(e.currentTarget.style, card)}
+            >
+              <IconPlaceholder>{icon}</IconPlaceholder>
+              <h3 style={cardTitle}>{title}</h3>
+              <p style={cardDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
         <button
           style={button}
           onClick={() => (window.location.href = "/projects")}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#005f86")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0077b6")}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = buttonHover.backgroundColor;
+            e.currentTarget.style.color = buttonHover.color;
+            e.currentTarget.style.boxShadow = buttonHover.boxShadow;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = button.backgroundColor;
+            e.currentTarget.style.color = button.color;
+            e.currentTarget.style.boxShadow = button.boxShadow;
+          }}
         >
-          View All Projects
+          View All Properties
         </button>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Buy From Us */}
       <section style={sectionStyle}>
-        <h2 style={headingStyle}>Why Choose Us?</h2>
+        <h2 style={subHeadingStyle}>Why Buy From Us?</h2>
         <div style={cardContainer}>
-          <div style={card}>
-            <h3>Trusted by Hundreds</h3>
-            <p>We’ve helped 100+ families find their dream properties.</p>
-          </div>
-          <div style={card}>
-            <h3>4 Experienced Directors</h3>
-            <p>Led by 4 visionaries with years of industry expertise.</p>
-          </div>
-          <div style={card}>
-            <h3>Quality & Transparency</h3>
-            <p>No hidden charges. Clear documentation. Always reliable.</p>
-          </div>
+          {[
+            {
+              icon: "🤝",
+              title: "Trusted Developer",
+              desc: "100+ happy families who bought directly from us.",
+            },
+            {
+              icon: "📋",
+              title: "Transparent Process",
+              desc: "Clear documentation with no hidden fees.",
+            },
+            {
+              icon: "🌱",
+              title: "Sustainable Development",
+              desc: "Eco-friendly and thoughtfully designed properties.",
+            },
+          ].map(({ icon, title, desc }, i) => (
+            <div
+              key={i}
+              style={card}
+              onMouseEnter={(e) => Object.assign(e.currentTarget.style, cardHover)}
+              onMouseLeave={(e) => Object.assign(e.currentTarget.style, card)}
+            >
+              <IconPlaceholder>{icon}</IconPlaceholder>
+              <h3 style={cardTitle}>{title}</h3>
+              <p style={cardDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Our Directors */}
       <section style={sectionStyle}>
-        <h2 style={headingStyle}>Meet Our Directors</h2>
+        <h2 style={subHeadingStyle}>Meet Our Directors</h2>
         <div style={cardContainer}>
-          <div style={card}>
-            <h3>Director 1</h3>
-            <p>Construction & Planning</p>
-          </div>
-          <div style={card}>
-            <h3>Director 2</h3>
-            <p>Layouts & Approvals</p>
-          </div>
-          <div style={card}>
-            <h3>Director 3</h3>
-            <p>Sales & Customer Relations</p>
-          </div>
-          <div style={card}>
-            <h3>Director 4</h3>
-            <p>Farmland Development</p>
-          </div>
+          {[
+            
+            {
+              icon: "🌱",
+              title: "Deepak TR",
+              desc: "Agriculturist & Horticulturist — Founder of Urban Krushika, driving sustainable agriculture initiatives.",
+              // photo: "https://randomuser.me/api/portraits/men/76.jpg",
+            },
+            {
+              icon: "🏗️",
+              title: "Prasana",
+              desc: "Civil Engineer & Owner of SneahBuildCare — Expert in structural design and construction management.",
+              // photo: "https://randomuser.me/api/portraits/women/65.jpg",
+            },
+            {
+              icon: "⚖️",
+              title: "Ramesh",
+              desc: "Advocate & Business Strategist — Providing legal counsel and overseeing diverse business ventures.",
+              // photo: "https://randomuser.me/api/portraits/men/77.jpg",
+            },
+            {
+              icon: "💻",
+              title: "Vinuth S",
+              desc: "Software Engineer & Developer — Leading our tech innovations and digital solutions.",
+              // photo: "https://randomuser.me/api/portraits/men/75.jpg",
+            },
+          ].map(({ icon, title, desc, photo }, i) => (
+            <div
+              key={i}
+              style={card}
+              onMouseEnter={(e) => Object.assign(e.currentTarget.style, cardHover)}
+              onMouseLeave={(e) => Object.assign(e.currentTarget.style, card)}
+            >
+              {photo && (
+                <img
+                  src={photo}
+                  alt={title}
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    marginBottom: "18px",
+                    border: `3px solid ${primaryGreen}`,
+                    boxShadow: `0 0 10px ${primaryGreen}aa`,
+                  }}
+                />
+              )}
+              <IconPlaceholder>{icon}</IconPlaceholder>
+              <h3 style={cardTitle}>{title}</h3>
+              <p style={cardDesc}>{desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Contact CTA */}
       <section style={sectionStyle}>
-        <h2 style={headingStyle}>Ready to Build Your Future?</h2>
-        <p style={paragraphStyle}>We’re just a message away. Let’s get started today!</p>
+        <h2 style={subHeadingStyle}>Ready to Own Your Dream Property?</h2>
+        <p style={{ ...paragraphStyle, marginBottom: "40px" }}>
+          Contact us today to learn more about our available properties and layouts.
+        </p>
         <button
           style={button}
           onClick={() => (window.location.href = "/contact")}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#005f86")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0077b6")}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = buttonHover.backgroundColor;
+            e.currentTarget.style.color = buttonHover.color;
+            e.currentTarget.style.boxShadow = buttonHover.boxShadow;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = button.backgroundColor;
+            e.currentTarget.style.color = button.color;
+            e.currentTarget.style.boxShadow = button.boxShadow;
+          }}
         >
           Contact Us
         </button>
@@ -180,15 +366,18 @@ const Home = () => {
       {/* Footer */}
       <footer
         style={{
-          backgroundColor: "#222",
-          padding: "20px",
+          backgroundColor: "#081E12",
+          padding: "25px",
           textAlign: "center",
-          color: "#aaa",
-          fontSize: "0.9rem",
+          color: primaryGreen,
+          fontSize: "1rem",
+          letterSpacing: "1.2px",
+          fontWeight: "600",
+          boxShadow: `inset 0 1px 5px ${primaryGreen}44`,
           marginTop: "40px",
         }}
       >
-        © {new Date().getFullYear()} RealtyCorp. All rights reserved.
+        © {new Date().getFullYear()} GREENTECH. All rights reserved.
       </footer>
     </div>
   );
