@@ -110,7 +110,7 @@ const Navbar = () => {
           <span role="img" aria-label="Home">
             🏠
           </span>
-          GREENTECH
+          Singara Estate and properties
         </NavLink>
       </div>
       <nav style={styles.navLinks}>

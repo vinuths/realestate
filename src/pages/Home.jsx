@@ -134,7 +134,7 @@ const Home = () => {
     <div style={{ backgroundColor: darkBackground, minHeight: "100vh" }}>
       {/* Hero Section */}
       <section style={{ ...sectionStyle, paddingTop: "140px", paddingBottom: "120px" }}>
-        <h1 style={headingStyle}>Welcome to GREENTECH</h1>
+        <h1 style={headingStyle}>Welcome to Singara Estate And Properties</h1>
          {/* <SimpleSkylineAnimation /> */}
         <p style={{ ...paragraphStyle, maxWidth: "600px", marginBottom: "40px" }}>
           We develop and sell <strong>high-quality residential layouts</strong>, <strong>apartments</strong>, and <strong>buildings</strong>. 
@@ -380,7 +380,7 @@ const Home = () => {
           marginTop: "40px",
         }}
       >
-        © {new Date().getFullYear()} GREENTECH. All rights reserved.
+        © {new Date().getFullYear()} Singara Estate and properties. All rights reserved.
       </footer>
     </div>
   );
